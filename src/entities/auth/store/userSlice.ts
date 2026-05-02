@@ -3,10 +3,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface IUserSlice {
 	user: IUser | null;
+	isAuthChecked: boolean;
 }
 
 const initialState: IUserSlice = {
-	user: null
+	user: null,
+	isAuthChecked: false,
 }
 
 export const userSlice = createSlice({
@@ -15,9 +17,11 @@ export const userSlice = createSlice({
 	reducers: {
 		addUser(state, action: PayloadAction<IUser>) {
 			state.user = action.payload;
+			state.isAuthChecked = true;
 		},
 		deleteUser(state) {
 			state.user = null;
+			state.isAuthChecked = true;
 		}
 	}
 })

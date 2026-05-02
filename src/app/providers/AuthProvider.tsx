@@ -17,8 +17,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
             email: authUser.email || "",
           }),
         );
-
-        localStorage.setItem("refreshToken", authUser.refreshToken);
       } else {
         dispatch(deleteUser());
       }
