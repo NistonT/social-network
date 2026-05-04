@@ -10,6 +10,6 @@ interface INavigator {
 export const navigators: INavigator[] = [
 	{ id: 0, name: "Profile", href: "", icon: CircleUser },
 	{ id: 1, name: "News", href: "/news", icon: LayoutGrid  },
-	{ id: 2, name: "Messenger", href: "/msg", icon: MessageCircle },
+	{ id: 2, name: "Messenger", href: "/messenger", icon: MessageCircle },
 	{ id: 3, name: "Friends", href: "/friends", icon: Users }
 ];
