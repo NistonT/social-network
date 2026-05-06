@@ -5,6 +5,8 @@
   line-height: 1.5;
   font-weight: 400;
 
+  color: #efeff3;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,5 +15,9 @@
 
 html,
 body {
-  background: linear-gradient(to top right, #0f0104, #1f0a14, #0f0104);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to top right, #0f0104, #2b0e1c, #0f0104);
+  background-attachment: fixed;
 }
