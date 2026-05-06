@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { Toaster } from "sonner";
 import "./index.css";
 import { AuthProvider } from "./providers/AuthProvider";
 import { MotionProvider } from "./providers/MotionProvider";
@@ -40,6 +41,7 @@ createRoot(document.getElementById("root")!).render(
         <StoreProvider>
           <AuthProvider>
             <Router />
+            <Toaster position="top-center" closeButton />
           </AuthProvider>
         </StoreProvider>
       </RouterProvider>

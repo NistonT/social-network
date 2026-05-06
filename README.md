@@ -1,5 +1,7 @@
 ToDo:
 
+Добавить анимации для страницы Authorization
+
 [] - Messages
 [] - page Feed
 [] - page Messages
@@ -15,4 +17,4 @@ Backed: Firebase
 [] - Change Post
 [] - Like
 
-React, Redux-toolkit, tailwind, lucide, motion, react-hook-form, react-router, zod,
+React, Redux-toolkit, tailwind, lucide, motion, react-hook-form, react-router, zod, sonner

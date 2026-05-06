@@ -1,2 +1,3 @@
-import { Auth } from "./Auth";
-export { Auth };
+import { Authorization } from "./Authorization";
+
+export { Authorization };

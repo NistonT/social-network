@@ -1,2 +1,2 @@
-import { AuthPage } from "./AuthPage";
-export { AuthPage };
+import { AuthorizationPage } from "./AuthorizationPage";
+export { AuthorizationPage };

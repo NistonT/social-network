@@ -18,7 +18,7 @@ export const App = () => {
 		}
 
 		if (!user) {
-			navigate("/auth")
+			navigate("/authorization")
 		}
 	}, [user, navigate, isAuthChecked])
 
@@ -28,7 +28,7 @@ export const App = () => {
 	const handleCloseUser = () => {
 		dispatch(deleteUser());
 		auth.signOut();
-		navigate("/auth")
+		navigate("/authorization")
 		localStorage.removeItem("refreshToken")
 	}
 	  if (!isAuthChecked) {
