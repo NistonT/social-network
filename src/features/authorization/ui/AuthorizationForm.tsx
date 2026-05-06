@@ -8,8 +8,8 @@ export const AuthorizationForm = () => {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit(onSubmitAuth)} className="flex flex-col gap-3 w-full">
-        <InputForm register={register} icon={Mail} type="email" placeholder="email@burmalda.com" name={"email"} />
-        <InputForm name="password" register={register} icon={KeyRound} type="password" placeholder="Password" />
+        <InputForm icon={Mail} type="email" {...register("email", { required: "Введите почту" })} placeholder="email@burmalda.com" />
+        <InputForm icon={KeyRound} type="password" {...register("password", { required: "Введите пароль" })} placeholder="Password" />
         <div className="flex items-center mt-5 h-full gap-1">
           <ButtonForm type="submit" className="flex-1 max-h-11">
             Sign In
