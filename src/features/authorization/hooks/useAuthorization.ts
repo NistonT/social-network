@@ -14,9 +14,13 @@ export const useAuthorization = () => {
     navigate("/");
   };
 
-  const onSubmitAuthGoogle = async () => {
+  const onSubmitAuthGoogle = () => {
     const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+      signInWithPopup(auth, provider)
+    .then(() => {})
+    .catch((error) => {
+      console.error(error);
+    });
     navigate("/");
   };
 
