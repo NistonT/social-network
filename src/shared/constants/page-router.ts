@@ -1,5 +1,5 @@
 class PageRouter {
-  PROFILE = "";
+  PROFILE = "/";
   NEWS = "/news";
   MESSENGER = "/messenger";
   FRIENDS = "/friends";

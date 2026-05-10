@@ -14,7 +14,8 @@ export const InputForm = forwardRef<HTMLInputElement, Props>(({ icon: Icon, clas
         {...props}
         className={`w-full text-xl border-b-2 border-gray-400 bg-transparent 
                      outline-none focus:border-gray-200 group-hover:border-gray-200 
-                     group-focus-within:border-gray-200 transition-colors duration-300 pl-1 
+                     group-focus-within:border-gray-200 transition-colors duration-300 pl-1
+                     font-mono
                      ${className || ""}`}
       />
     </div>

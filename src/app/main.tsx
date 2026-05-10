@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Toaster } from "sonner";
 import "./index.css";
@@ -35,16 +34,14 @@ const db = getFirestore(app);
 export { app, auth, db };
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <MotionProvider>
-      <RouterProvider>
-        <StoreProvider>
-          <AuthProvider>
-            <Router />
-            <Toaster position="top-center" closeButton />
-          </AuthProvider>
-        </StoreProvider>
-      </RouterProvider>
-    </MotionProvider>
-  </StrictMode>,
+  <MotionProvider>
+    <RouterProvider>
+      <StoreProvider>
+        <AuthProvider>
+          <Router />
+          <Toaster position="top-center" closeButton />
+        </AuthProvider>
+      </StoreProvider>
+    </RouterProvider>
+  </MotionProvider>,
 );

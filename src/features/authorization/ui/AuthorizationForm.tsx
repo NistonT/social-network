@@ -1,18 +1,48 @@
 import { ButtonForm, InputForm } from "@/shared/ui";
-import { KeyRound, Mail } from "lucide-react";
+import { CircleAlert, KeyRound, Mail } from "lucide-react";
 import { useAuthorization } from "../hooks/useAuthorization";
 
 export const AuthorizationForm = () => {
-  const { register, handleSubmit, onSubmitAuth, onSubmitAuthGoogle } = useAuthorization();
+  const { register, handleSubmit, onSubmitAuth, onSubmitAuthGoogle, isSubmitting, errors } = useAuthorization();
 
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit(onSubmitAuth)} className="flex flex-col gap-3 w-full">
-        <InputForm icon={Mail} type="email" {...register("email", { required: "Введите почту" })} placeholder="email@burmalda.com" />
-        <InputForm icon={KeyRound} type="password" {...register("password", { required: "Введите пароль" })} placeholder="Password" />
+        <div className="flex flex-col">
+          <InputForm
+            icon={Mail}
+            type="email"
+            placeholder="email@burmalda.com"
+            {...register("email")}
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
+          />
+          {errors.email && (
+            <div id="email-error" className="font-mono text-red-500 text-sm mt-1 flex items-center gap-2">
+              <CircleAlert />
+              <span className="pl-1">{errors.email.message}</span>
+            </div>
+          )}
+        </div>
+        <div>
+          <InputForm
+            icon={KeyRound}
+            type="password"
+            placeholder="Password"
+            {...register("password")}
+            aria-invalid={!!errors.password}
+            aria-describedby={errors.password ? "password-error" : undefined}
+          />
+          {errors.password && (
+            <div id="password-error" className="font-mono text-red-500 text-sm mt-1 flex items-center gap-2">
+              <CircleAlert />
+              <span className="pl-1">{errors.password.message}</span>
+            </div>
+          )}
+        </div>
         <div className="flex items-center mt-5 h-full gap-1">
-          <ButtonForm type="submit" className="flex-1 max-h-11">
-            Sign In
+          <ButtonForm type="submit" className="flex-1 max-h-11" disabled={isSubmitting}>
+            {isSubmitting ? "Signing in..." : "Sign In"}
           </ButtonForm>
 
           <ButtonForm type="button" onClick={onSubmitAuthGoogle} className="flex flex-1 items-center justify-center max-h-11">
