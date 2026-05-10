@@ -2,7 +2,7 @@ import { auth } from "@/app/main";
 import { pageRouter } from "@/shared/constants/page-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app";
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
@@ -66,6 +66,7 @@ export const useAuthorization = () => {
       toast.success("Successfully authorized!");
       navigate(pageRouter.PROFILE);
     });
+    signInWithRedirect(auth, provider);
   };
 
   return { register, handleSubmit, onSubmitAuth, onSubmitAuthGoogle, isSubmitting, errors };
