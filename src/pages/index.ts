@@ -1,2 +1,3 @@
 import { AuthorizationPage } from "./AuthorizationPage";
-export { AuthorizationPage };
+import { RegistrationPage } from "./RegistrationPage";
+export { AuthorizationPage, RegistrationPage };
