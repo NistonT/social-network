@@ -2,7 +2,7 @@ import { auth } from "@/app/main";
 import { pageRouter } from "@/shared/constants/page-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app";
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
@@ -60,13 +60,17 @@ export const useAuthorization = () => {
     }
   };
 
-  const onSubmitAuthGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then(() => {
+  const onSubmitAuthGoogle = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
       toast.success("Successfully authorized!");
       navigate(pageRouter.PROFILE);
-    });
-    signInWithRedirect(auth, provider);
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        toast.error("Unexpected error during sign-in");
+      }
+    }
   };
 
   return { register, handleSubmit, onSubmitAuth, onSubmitAuthGoogle, isSubmitting, errors };
