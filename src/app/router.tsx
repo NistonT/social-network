@@ -1,4 +1,4 @@
-import { AuthorizationPage } from "@/pages";
+import { AuthorizationPage, RegistrationPage } from "@/pages";
 import { App } from "@/pages/App";
 import { pageRouter } from "@/shared/constants/page-router";
 import { Route, Routes } from "react-router";
@@ -10,6 +10,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<App />} />
       <Route path={pageRouter.AUTHORIZATION} element={<AuthorizationPage />} />
+      <Route path={pageRouter.REGISTRATION} element={<RegistrationPage />} />
     </Routes>
   );
 };
