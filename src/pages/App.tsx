@@ -35,7 +35,7 @@ export const App = () => {
         return <div>Loading...</div>;
     }
 
-	return <div>Hello <div>{user?.name || "user"}</div> <div>{user?.email}</div> <div>{user?.id}</div>
+	return <div>Hello <div>{user?.displayName || "user"}</div> <div>{user?.email}</div> <div>{user?.id}</div>
 	<div><Message /></div>
 		<button onClick={handleCloseUser}>Close</button>
 	</div>;
