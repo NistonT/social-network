@@ -15,9 +15,9 @@ export const RegistrationForm = () => {
             placeholder="Display name"
             {...register("displayName")}
             aria-invalid={!!errors.displayName}
-            aria-describedby={errors.displayName ? "displayName-error" : undefined}
+            aria-describedby={errors.displayName ? "displayName-error-reg" : undefined}
           />
-          <ErrorField field={errors.displayName} id={"displayName-error"} />
+          <ErrorField field={errors.displayName} id={"displayName-error-reg"} />
         </div>
         <div className="flex flex-col">
           <InputForm
@@ -26,9 +26,9 @@ export const RegistrationForm = () => {
             placeholder="email@burmalda.com"
             {...register("email")}
             aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? "email-error" : undefined}
+            aria-describedby={errors.email ? "email-error-reg" : undefined}
           />
-          <ErrorField field={errors.email} id={"email-error"} />
+          <ErrorField field={errors.email} id={"email-error-reg"} />
         </div>
         <div className="flex flex-col">
           <InputFormPassword
@@ -36,9 +36,9 @@ export const RegistrationForm = () => {
             placeholder="Password"
             {...register("password")}
             aria-invalid={!!errors.password}
-            aria-describedby={errors.password ? "password-error" : undefined}
+            aria-describedby={errors.password ? "password-error-reg" : undefined}
           />
-          <ErrorField field={errors.password} id={"password-error"} />
+          <ErrorField field={errors.password} id={"password-error-reg"} />
         </div>
         <div className="flex items-center mt-5 h-full gap-1">
           <ButtonForm type="submit" className="flex-1 max-h-11" disabled={isSubmitted}>
