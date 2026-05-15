@@ -1,5 +1,5 @@
-import { ButtonForm, InputForm } from "@/shared/ui";
-import { CircleAlert, KeyRound, Mail } from "lucide-react";
+import { ButtonForm, ErrorField, InputForm } from "@/shared/ui";
+import { KeyRound, Mail } from "lucide-react";
 import { useAuthorization } from "../hooks/useAuthorization";
 
 export const AuthorizationForm = () => {
@@ -17,12 +17,7 @@ export const AuthorizationForm = () => {
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
           />
-          {errors.email && (
-            <div id="email-error" className="font-mono text-red-500 text-sm mt-1 flex items-center gap-2">
-              <CircleAlert />
-              <span className="pl-1">{errors.email.message}</span>
-            </div>
-          )}
+          <ErrorField field={errors.email} id={"email-error"} />
         </div>
         <div>
           <InputForm
@@ -33,12 +28,7 @@ export const AuthorizationForm = () => {
             aria-invalid={!!errors.password}
             aria-describedby={errors.password ? "password-error" : undefined}
           />
-          {errors.password && (
-            <div id="password-error" className="font-mono text-red-500 text-sm mt-1 flex items-center gap-2">
-              <CircleAlert />
-              <span className="pl-1">{errors.password.message}</span>
-            </div>
-          )}
+          <ErrorField field={errors.password} id={"password-error"} />
         </div>
         <div className="flex items-center mt-5 h-full gap-1">
           <ButtonForm type="submit" className="flex-1 max-h-11" disabled={isSubmitting}>
