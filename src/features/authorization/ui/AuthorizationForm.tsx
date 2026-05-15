@@ -1,4 +1,4 @@
-import { ButtonForm, ErrorField, InputForm } from "@/shared/ui";
+import { ButtonForm, ErrorField, InputForm, InputFormPassword } from "@/shared/ui";
 import { KeyRound, Mail } from "lucide-react";
 import { useAuthorization } from "../hooks/useAuthorization";
 
@@ -20,9 +20,8 @@ export const AuthorizationForm = () => {
           <ErrorField field={errors.email} id={"email-error"} />
         </div>
         <div>
-          <InputForm
+          <InputFormPassword
             icon={KeyRound}
-            type="password"
             placeholder="Password"
             {...register("password")}
             aria-invalid={!!errors.password}

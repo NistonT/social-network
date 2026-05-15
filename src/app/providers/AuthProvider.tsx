@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         dispatch(
           addUser({
             id: authUser.uid,
-            name: authUser.displayName ?? "",
+            displayName: authUser.displayName ?? "",
             email: authUser.email || "",
           }),
         );
