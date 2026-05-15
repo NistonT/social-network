@@ -1,4 +1,4 @@
-import { ButtonForm, ErrorField, InputForm } from "@/shared/ui";
+import { ButtonForm, ErrorField, InputForm, InputFormPassword } from "@/shared/ui";
 import { KeyRound, Mail, User } from "lucide-react";
 import { useRegistration } from "../hooks/useRegistration";
 
@@ -30,10 +30,9 @@ export const RegistrationForm = () => {
           />
           <ErrorField field={errors.email} id={"email-error"} />
         </div>
-        <div>
-          <InputForm
+        <div className="flex flex-col">
+          <InputFormPassword
             icon={KeyRound}
-            type="password"
             placeholder="Password"
             {...register("password")}
             aria-invalid={!!errors.password}
