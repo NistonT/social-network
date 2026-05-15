@@ -44,7 +44,7 @@ const sortedMessages = [...messages].sort((a, b) => {
         {sortedMessages.map(msg => (
             <div key={msg.id} className={`py-2 border-2 ${msg.user.id === user?.id ? "text-right text-green-500" : "text-red-500"}`}>
                 <div>{msg.message}</div>
-                <div>{msg.user.email || msg.user.name}</div>
+                <div>{msg.user.email || msg.user.displayName}</div>
             </div>
         ))}
 			</div>
